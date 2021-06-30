@@ -1,0 +1,76 @@
+.main-screen {
+    height: 78.55vh;
+    background-image: url('../img/main-screen-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 10vh;
+    @media (max-width: 1025px) and (min-height: 1000px) {
+        height: 45vh;
+    }
+    @media (max-width: 768px) {
+        height: 70vh;
+        background-position-x: 15%;
+    }
+    @media (max-width: 600px) {
+        height: calc(100vh - #{$HEADER_MOBILE_HEIGHT});
+    }
+    &__heading {
+        font-weight: $F_W_BOLD;
+        color: $COLOR_BLACK;
+        line-height: 1.2;
+        &_level_1 {
+            font-size: $F_S_48px;
+            text-transform: uppercase;
+            @media (min-width: 769px) {
+                width: 760px;
+            }
+            @media (max-width: 1200px) {
+                font-size: $F_S_40px;
+            }
+            @media (max-width: 500px) {
+                font-size: $F_S_30px;
+            }
+            @media (max-width: 320px) {
+                font-size: $F_S_1_5em;
+            }
+        }
+        &_level_3 {
+            font-size: $F_S_20px;
+            @media (max-width: 500px) {
+                font-size: $F_S_18px;
+            }
+        }
+    }
+    &__list-wrapper {
+        margin: 8vh 0;
+        @media (max-width: 1025px) and (min-height: 1000px) {
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+    }
+}
+
+.list {
+    color: $COLOR_BLACK;
+    margin-top: 10px;
+    &__item {
+        font-size: $F_S_20px;
+        line-height: 1.2;
+        position: relative;
+        padding-left: 1.25em;
+        margin: .5em 0;
+        display: flex;
+        align-items: center;
+        @media (max-width: 500px) {
+            font-size: $F_S_16px;
+        }
+        &:before {
+            position: absolute;
+            content: '';
+            left: 5px;
+            width: 5px;
+            height: 2px;
+            background-color: $COLOR_BLACK;
+        }
+    }
+}

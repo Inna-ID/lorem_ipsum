@@ -1,0 +1,42 @@
+*, *:before,*:after {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   box-sizing: border-box;
+}
+:focus, :active, a:focus, a:active {
+   outline: none;
+}
+html, body {
+    height: 100%;
+}
+body {
+    line-height: 1;
+    font-size: 16px;
+    font-family: $fontfamily;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input, button, textarea {font-family: $fontfamily;}
+input, button, textarea {
+    &:focus, &:active, &:hover {
+        outline: none;
+    }
+}
+input::-ms-clear {display: none;}
+button {cursor: pointer;}
+button::-moz-focus-inner{padding: 0;bottom: 0;}
+a, a:hover, a:visited {text-decoration: none;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+// dl, ol, p, ul, li, div, span, a, label, input, textarea {
+//     margin: 0;
+// }
+//-webkit-overflow-scrolling: touch;
+//animation-play-state: paused!important

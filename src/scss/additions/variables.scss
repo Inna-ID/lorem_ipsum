@@ -1,0 +1,76 @@
+$fontfamily: 'Lato', sans-serif;
+
+///// colors
+$COLOR_WHITE: #FFFFFF;
+$COLOR_BLUE: #3E9CDC;
+$COLOR_GREY: #C3C3C3;
+$COLOR_BLUE_GREY:#3D4050;
+$COLOR_DARK_BLUE_GREY:#272733;
+$COLOR_BLACK: #000000;
+
+///// font sizes
+$F_S_13px: 0.8125em;
+$F_S_15px: 0.9375em;
+$F_S_16px: 1em;
+$F_S_18px: 1.125em;
+$F_S_20px: 1.25em;
+$F_S_1_5em: 1.5em;
+$F_S_30px: 1.875em;
+$F_S_32px: 2em;
+$F_S_36px: 2.25em;
+$F_S_40px: 2.5em;
+$F_S_48px: 3em;
+
+$F_W_BOLD: 700;
+
+
+///// radius
+$RADIUS_S: 4px;
+$RADIUS_XS: 3px;
+
+///// effects
+$shadow: 0 2px 16px 0 rgba(0,0,0,.25);
+$TRANSITION_SLOW: all .5s ease-in-out;
+$TRANSITION_FAST: all .3s ease-in-out;
+
+////// other
+$SMALL_BUTTON_WIDTH: 183px;
+$LARGE_BUTTON_WIDTH: 370px;
+$HEADER_MOBILE_HEIGHT: 60px;
+$STEP_CIRCLE_RADIUS: 50;
+
+///transition with fixing shaking
+@mixin slow_transition {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility: hidden;
+	transition: $transition_slow;
+}
+
+@mixin fontAwesome {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+}
+
+@mixin centering_margin_hor {
+	margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin centering_flex_hor_ver {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin circle($diametr) {
+	width: $diametr + px;
+	height: $diametr + px;
+	border-radius: 50%;
+}
+
+@mixin chevron($color) {
+    border-bottom: 1px solid $color;
+    border-left: 1px solid $color;
+}
+//@include circle(30);

@@ -1,0 +1,48 @@
+.button {
+    border-radius: $RADIUS_S;
+    text-transform: uppercase;
+    transition: $TRANSITION_FAST;
+    &:hover {
+        opacity: .85;
+    }
+    &_small {
+        width: $SMALL_BUTTON_WIDTH;
+        height: 43px;
+        font-size: $F_S_13px;
+        font-weight: normal;
+    }
+    &_large {
+        width: $LARGE_BUTTON_WIDTH;
+        height: 48px;
+        font-size: $F_S_15px;
+        font-weight: $F_W_BOLD;
+        @media (max-width: 500px) {
+            width: 100%;
+        }
+    }
+    &_blue {
+        color: $COLOR_WHITE;
+        background: $COLOR_BLUE;
+        border: 1px solid $COLOR_WHITE;
+        
+    }
+    &_white {
+        color: #2A2B30;
+        background: $COLOR_WHITE;
+        border: 1px solid #6F6D7B;
+    }
+}
+
+.button-block {
+    display: flex;
+    justify-content: space-between;
+    @media (min-width: 501px) {
+        width: calc(#{$SMALL_BUTTON_WIDTH * 2 + 30px});
+    }
+    @media (max-width: 500px) {
+        flex-direction: column;
+        .button {
+            margin: .6em 0;
+        }
+    }
+}
