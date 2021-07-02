@@ -3,6 +3,9 @@
     height: 100px;
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     @media (max-width: 600px) {
         height: $HEADER_MOBILE_HEIGHT;
     }
@@ -18,7 +21,7 @@
         width: 30px;
         height: 20px;
         z-index: 101;
-
+        cursor: pointer;
         span {
             position: absolute;
             left: 0;
@@ -86,37 +89,14 @@
             padding-top: 70px;
             overflow: auto;
             z-index: 100;
-            @media (max-width: 600px) {
+            @media (max-width: 768px) {
                 padding-left: 20px;
                 padding-right: 20px;
             }
         }
     }
-
-    &__list {
-        position: relative;
-        z-index: 2;
-
-        @media (min-width: 768px) {
-            display: flex;
-
-            li {
-                margin-left: 20px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            padding: 0 10px;
-
-            li {
-                margin: 20px 0;
-            }
-        }
-    }
-
-
 }
-//new
+
 
 .logo {
     &__link {
@@ -136,7 +116,7 @@
 
 .nav {
     display: flex;
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
         flex-direction: column;
     }
     &__item {
@@ -147,7 +127,7 @@
         &:first-child {
             margin-left: 0;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             margin-left: 0;
             margin: 15px 0;
         }
@@ -161,7 +141,7 @@
         &.active, &:hover {
             color: $COLOR_BLUE;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             font-size: $F_S_18px;
         }
     }

@@ -25,34 +25,15 @@ function scss() {
     .pipe(dest('dist/css'))
 }
 
-function styleLibs() {
-	return src('src/css/libs/*.css')
-	.pipe(csso())
-	.pipe(concat('libs.min.css'))
-	.pipe(dest('dist/css'))
-}
-
 function scripts() {
 	return src('src/js/*.js')
 	.pipe(uglify())
 	.pipe(dest('dist/js'))
 }
 
-function scriptLibs() {
-	return src('src/js/libs/*.js')
-	.pipe(uglify())
-	.pipe(concat('libs.min.js'))
-	.pipe(dest('dist/js'))
-}
-
 function images() {
 	return src('src/img/**/*.*')
 	.pipe(dest('dist/img'))
-}
-
-function fonts() {
-	return src('src/fonts/**/*.*')
-	.pipe(dest('dist/fonts'))
 }
 
 function clear() {
@@ -69,10 +50,9 @@ function serve() {
   watch('src/scss/**/*.scss', series(scss)).on('change', sync.reload)
   watch('src/js/*.js', series(scripts)).on('change', sync.reload)
   watch('src/img/*.*', series(images)).on('change', sync.reload)
-  watch('src/fonts/*.*', series(fonts)).on('change', sync.reload)
 }
 
-exports.build = series(clear, scss, html, scripts, styleLibs, scriptLibs, images, fonts)
-exports.default = series(clear, html, styleLibs, scriptLibs, scss, scripts, images, fonts, serve)
+exports.build = series(clear, scss, html, scripts, images)
+exports.default = series(clear, html, scss, scripts, images, serve)
 
 exports.clear = clear

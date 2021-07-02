@@ -16,7 +16,59 @@
       </div>
       @@include('html_parts/footer.html')
    </div>
-   <script src="js/libs.min.js"></script>
-   <script src="js/main.js"></script>
+
+   <script>
+       //burger menu
+        var burgerButton = document.querySelector('.header__burger');
+        var menuLinks = document.querySelectorAll('.header .nav__link');
+        var rangeInput = document.querySelector('#range-input');
+
+        function toggleMenu () {
+            document.querySelector('.header__burger').classList.toggle('active');
+            document.querySelector('.header__menu').classList.toggle('active');
+        }
+        function closeMenu () {
+            document.querySelector('.header__burger').classList.remove('active');
+            document.querySelector('.header__menu').classList.remove('active');
+            for (var i = 0; i < menuLinks.length; i++) {
+                menuLinks[i].addEventListener('click', closeMenu);
+            }
+        }
+
+        burgerButton.addEventListener('click', toggleMenu);
+        closeMenu();
+
+
+        ///function for select
+        var selectElement = document.querySelector('.custom-select__wrapper');
+        var selectItems = document.querySelectorAll('.custom-select__item');
+        function AddSelectListener () {
+            for (var i = 0; i < selectItems.length; i++) {
+                selectItems[i].addEventListener('click', SelectItem);
+            }
+        };
+
+        function closeSelectList () {
+            selectElement.removeAttribute('open')
+        }
+
+        function SelectItem (e) {
+            var selectedItem = e.target;
+            for (var i = 0; i < selectItems.length; i++) {
+                selectItems[i].classList.remove('active');
+            }
+            selectedItem.classList.add('active');
+            document.querySelector('.custom-select__value').innerText = selectedItem.innerText;
+            closeSelectList();
+        };
+
+        AddSelectListener();
+
+        ///function for range
+        function showRangeValue () {
+            document.querySelector('.range__value').innerHTML = rangeInput.value + '%';
+        }
+        rangeInput.addEventListener('change', showRangeValue);
+   </script>
 </body>
 </html>

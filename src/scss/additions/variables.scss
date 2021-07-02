@@ -30,7 +30,6 @@ $RADIUS_XS: 3px;
 
 ///// effects
 $shadow: 0 2px 16px 0 rgba(0,0,0,.25);
-$TRANSITION_SLOW: all .5s ease-in-out;
 $TRANSITION_FAST: all .3s ease-in-out;
 
 ////// other
@@ -40,37 +39,43 @@ $HEADER_MOBILE_HEIGHT: 60px;
 $STEP_CIRCLE_RADIUS: 50;
 
 ///transition with fixing shaking
-@mixin slow_transition {
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility:hidden;
-	-ms-backface-visibility: hidden;
-	transition: $transition_slow;
-}
-
-@mixin fontAwesome {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-}
-
-@mixin centering_margin_hor {
-	margin-left: auto;
-    margin-right: auto;
-}
-
-@mixin centering_flex_hor_ver {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 @mixin circle($diametr) {
 	width: $diametr + px;
 	height: $diametr + px;
 	border-radius: 50%;
 }
+//@include circle(30);
 
 @mixin chevron($color) {
     border-bottom: 1px solid $color;
     border-left: 1px solid $color;
 }
-//@include circle(30);
+
+@mixin button_hover_overlay($color, $percent) {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($color, $percent);
+    transition: $TRANSITION_FAST;
+    z-index: -1;
+}
+
+@mixin customScrollBar($size) {
+    &::-webkit-scrollbar {
+        width: $size + px;
+        height: $size + px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $COLOR_BLUE_GREY;
+        box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+    }
+       
+    &::-webkit-scrollbar-thumb {
+        background-color: $COLOR_BLUE;
+        border-radius: 5px;
+    }
+}

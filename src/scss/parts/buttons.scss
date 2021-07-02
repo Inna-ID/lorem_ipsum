@@ -2,8 +2,11 @@
     border-radius: $RADIUS_S;
     text-transform: uppercase;
     transition: $TRANSITION_FAST;
+    overflow: hidden;
+    position: relative;
     &:hover {
-        opacity: .85;
+        opacity: .95;
+        box-shadow: 0px 2px 10px 0 rgba(31, 54, 71, 0.12);
     }
     &_small {
         width: $SMALL_BUTTON_WIDTH;
@@ -24,12 +27,30 @@
         color: $COLOR_WHITE;
         background: $COLOR_BLUE;
         border: 1px solid $COLOR_WHITE;
-        
+        position: relative;
+        &:before {
+            @include button_hover_overlay($COLOR_BLUE, 10%);
+        }
+        &:hover {
+            color: $COLOR_WHITE;
+            &:before {
+              width: 100%;
+            }
+        }
     }
     &_white {
-        color: #2A2B30;
+        color: $COLOR_DARK_BLUE_GREY;
         background: $COLOR_WHITE;
         border: 1px solid #6F6D7B;
+        &:before {
+            @include button_hover_overlay($COLOR_WHITE, 5%);
+        }
+        &:hover {
+            color: $COLOR_DARK_BLUE_GREY;
+            &:before {
+              width: 100%;
+            }
+        }
     }
 }
 
